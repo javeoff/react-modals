@@ -6,24 +6,24 @@ import produce from 'immer';
 
 export const useModalContext = (): IModalContext => {
   const modalsRef = useRef<IModalData[]>([]);
-  // const update = useUpdate();
+  const update = useUpdate();
 
   return {
     modals: modalsRef.current,
     createModal: (name?: string): number => {
       modalsRef.current.push({
-        isActive: true,
+        isActive: false,
         name,
       });
 
-      // update();
+      update();
       return modalsRef.current.length - 1;
     },
     removeModal: (idx) => {
       modalsRef.current = modalsRef.current.filter(
         (_, modalIdx) => modalIdx !== idx,
       );
-      // update();
+      update();
     },
     openModal: (idx) => {
       modalsRef.current = produce(modalsRef.current, (modalsDraft) => {
@@ -36,7 +36,7 @@ export const useModalContext = (): IModalContext => {
         modalDraft.isActive = true;
         return modalsDraft;
       });
-      // update();
+      update();
     },
     closeModal: (idx) => {
       modalsRef.current = produce(modalsRef.current, (modalsDraft) => {
@@ -49,7 +49,7 @@ export const useModalContext = (): IModalContext => {
         modalDraft.isActive = false;
         return modalsDraft;
       });
-      // update();
+      update();
     },
   };
 };
