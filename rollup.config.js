@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import swc from 'rollup-plugin-swc';
 import { terser } from 'rollup-plugin-terser';
-const commonjs = require('@rollup/plugin-commonjs');
+import commonjs from '@rollup/plugin-commonjs';
 
 const config = () => {
   const plugins = [
@@ -16,8 +16,8 @@ const config = () => {
       jsc: {
         parser: {
           syntax: 'typescript',
+          target: 'es5',
         },
-        target: 'es5',
       },
     }),
     commonjs(),

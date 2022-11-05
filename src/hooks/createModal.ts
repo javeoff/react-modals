@@ -31,7 +31,7 @@ export const createModal = (Modal: FC<Record<string, unknown>>) => (name?: strin
     return () => {
       ctx.removeModal(modalIdx);
     }
-  });
+  }, []);
 
   return {
     Modal,

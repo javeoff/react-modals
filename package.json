@@ -1,6 +1,6 @@
 {
   "name": "react-modals-jave",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "sideEffects": false,
@@ -14,7 +14,7 @@
   "dependencies": {
     "immer": "^9.0.16",
     "react": "^18.0.0",
-    "react-utils-jave": "^1.0.0",
+    "react-utils-jave": "^1.0.3",
     "rollup-plugin-terser": "^7.0.2"
   },
   "devDependencies": {
