@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
-
-import { IModalData } from '@anagram/ui/Modal/types/IModalData';
+import { IModalData } from './IModalData';
 
 export interface IModalContext {
   modals: IModalData[];
