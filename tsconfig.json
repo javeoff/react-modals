@@ -3,7 +3,6 @@
     "declaration": true,
     "noEmit": false,
     "outDir": "./dist/",
-    "target": "es5",
     "rootDir": "src",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "ESNext",

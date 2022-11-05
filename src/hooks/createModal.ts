@@ -7,8 +7,8 @@ interface IResult {
   open: VoidFunction;
   isActive: boolean;
 }
-
-export const createModal = (Modal: FC<Record<string, unknown>>) => (name?: string): IResult => {
+const name = '1'
+export const createModal = (Modal: FC<Record<string, unknown>>) => (): IResult => {
   const ctx = useContext(ModalContext);
 
   const modalIdx = useMemo(() => {

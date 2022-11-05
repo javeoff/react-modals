@@ -1,6 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import swc from 'rollup-plugin-swc';
 import { terser } from 'rollup-plugin-terser';
+const commonjs = require('@rollup/plugin-commonjs');
 
 const config = () => {
   const plugins = [
@@ -18,6 +19,7 @@ const config = () => {
         target: 'es2018',
       },
     }),
+    commonjs(),
   ];
 
   if (process.env.NODE_ENV === 'production') {
