@@ -1,2 +1,2 @@
-export { createModal } from './hooks/createModal';
+export { createModal, IModalProps } from './hooks/createModal';
 export { ModalProvider } from './ModalProvider';

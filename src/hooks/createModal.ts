@@ -1,14 +1,14 @@
 import { ModalContext } from '../ModalProvider';
 import { FC, useContext, useEffect, useMemo } from 'react';
 
-interface IResult {
+export interface IModalProps {
   Modal: FC<Record<string, unknown>>;
   close: VoidFunction;
   open: VoidFunction;
   isActive: boolean;
 }
 
-export const createModal = (Modal: FC<Record<string, unknown>>) => (name?: string): IResult => {
+export const createModal = (Modal: FC<Record<string, unknown>>) => (name?: string): IModalProps => {
   const ctx = useContext(ModalContext);
 
   const modalIdx = useMemo(() => {

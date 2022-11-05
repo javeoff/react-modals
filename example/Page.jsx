@@ -1,20 +1,35 @@
-import { Modal } from './Modal';
 import { createModal } from 'react-modals-jave';
+import { useEffect } from 'react';
+
+export const Modal = ({ onClose }) => {
+  return (
+    <div onClick={onClose}>Modal</div>
+  )
+}
 
 const useModal = createModal(Modal);
+
+const Header = () => {
+  const { close, isActive } = useModal('f');
+  return <h1 onClick={close}>Modal is a {isActive ? 'active' : 'noactive'}</h1>
+}
 
 export const Page = () => {
   const { Modal, open, close, isActive } = useModal('f');
 
-  console.log('1');
+  useEffect(() => {
+    open()
+  }, [])
+
+  console.log('rerender');
 
   return (
     <div>
-      <h1>Page</h1>
-      {/*<button onClick={() => open}>open modal</button>*/}
-      {/*<button onClick={() => close}>close modal</button>*/}
+      <Header />
+      <button onClick={open}>open</button>
+      <button onClick={close}>close</button>
       {isActive && (
-        <Modal />
+        <Modal onClose={close} />
       )}
     </div>
   )
