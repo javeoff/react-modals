@@ -7,6 +7,7 @@ const config = () => {
   const plugins = [
     typescript({
       tsconfig: 'tsconfig.json',
+      target: 'es5',
     }),
     swc({
       rollup: {
@@ -16,7 +17,7 @@ const config = () => {
         parser: {
           syntax: 'typescript',
         },
-        target: 'es2018',
+        target: 'es5',
       },
     }),
     commonjs(),
@@ -29,7 +30,7 @@ const config = () => {
   return {
     input: 'src/index.ts',
     output: {
-      format: 'esm',
+      format: 'cjs',
       dir: 'dist',
       preserveModules: true,
     },
